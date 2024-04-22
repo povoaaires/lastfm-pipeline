@@ -10,7 +10,7 @@ app_api = os.getenv('id_project')
 
 url = "http://ws.audioscrobbler.com/2.0/"
 
-metodos = ['user.getInfo','user.gettopartists','user.getRecentTracks','user.getTopArtists','user.getTopTracks']
+metodos = ['user.getInfo','user.gettopartists','user.getRecentTracks','user.getTopTracks']
 
 
 
@@ -25,7 +25,7 @@ data = []
 for metodo in metodos:
     logging.warning(f"Extracao de dados do Metodo {metodo} iniciado")
     params['method'] = metodo 
-
+    params['page'] = 1
 
     try:
         req = requests.get(url,params=params)
@@ -38,8 +38,11 @@ for metodo in metodos:
     first_key = next(find_first_key)
     
     try:
-        total_pages = int(repon.get(first_key,0).get('@attr',0).get('totalPages',0))
-        actual = int(repon.get(first_key,0).get('@attr',0).get('page',0))
+        first_key_return = repon.get(first_key,'0')
+        second_key = first_key_return.get('@attr','0')
+        total_pages = int(second_key.get('totalPages','0')) if second_key != '0' else 0
+        actual = int(second_key.get('page','0')) if second_key != '0' else 0
+
     except Exception as ex:
         logging.error(f"Falha ao obter objetos no processo -> {ex}")
 
