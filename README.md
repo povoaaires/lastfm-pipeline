@@ -2,6 +2,8 @@
 
 Pipeline onde é consumido a API do last.fm com algumas informações de músicas de um usuário pré-definido
 
+> [!NOTE]
+> URL da Documentação da API [Last.fm Music Discovery API](https://www.last.fm/pt/api).
 
 ## 🔧 Instalação
 
