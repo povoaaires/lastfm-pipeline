@@ -1,9 +1,9 @@
-certifi==2024.2.2
+certifi==2026.10.18
 charset-normalizer==3.3.2
 findspark==2.0.1
-idna==3.7
+idna==3.15
 py4j==0.10.7
-pyspark==2.3.3
-python-dotenv==1.0.1
-requests==2.31.0
-urllib3==2.2.1
+pyspark==3.5.8
+python-dotenv==1.2.2
+requests==2.33.0
+urllib3==2.8.0
